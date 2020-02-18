@@ -19,14 +19,14 @@
 <body>
     <div class="wrapper">
         <!-- <form method="post" action="http://localhost:5000/postjson/" > -->
-            <form method="post" action="http://127.0.0.1:5000/modules.py">
+            <form method="post" action="http://127.0.0.1:5000/register">
                 <legend>Registrera medlemsuppgifter</legend>
                 <label>Betalsätt: 
                     <select name="paymenttype">
-                        <option value="-1">Välj betalsätt</option>
-                        <option value="1" >Kreditkort</option>
-                        <option value="1" >Swish</option>
-                        <option value="1" >Cash mannen</option>
+                        <option value="Inget valt">Välj betalsätt</option>
+                        <option value="Kreditkort" >Kreditkort</option>
+                        <option value="Swish" >Swish</option>
+                        <option value="Kontanter" >Kontanter</option>
                     </select>
                 </label>
                 <label>
@@ -58,7 +58,7 @@
                     <input type="email" name="email" />
                 </label>
                 <label>
-                    Erbjudanden via e-post: <input type="checkbox" name="offers" value="offers" />
+                    Erbjudanden via e-post: <input type="checkbox" name="offers" value="Ja" />
                 </label>
                 <p>Epost-format:
                     <label>Html: <input type="radio" name="format" value="html" /></label>
@@ -92,7 +92,7 @@
         const form = document.querySelector('form');
         const postData = Object.values(form).reduce((obj,field) => { obj[field.name] = field.value; return obj }, {});
         console.log(postData);
-        sendData('http://localhost:5000/postjson/', postData)
+        sendData('http://localhost:5000/register/', postData)
             .then((data) => {
             console.log(data); // JSON data parsed by `response.json()` call
         });
