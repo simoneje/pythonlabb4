@@ -2,8 +2,7 @@ from flask import Flask, render_template, jsonify
 from flask import request
 app = Flask(__name__)
 
-def hej(firstname):
-    return firstname
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -59,10 +58,10 @@ def register():
 
 
 
-@app.route('/test')
-def test():
-    print(jsonify)
-    return render_template('test.html')
+# @app.route('/test')
+# def test():
+#     print(jsonify)
+#     return render_template('test.html')
 if __name__ == '__main__':
     app.run()
     
